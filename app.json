@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "taponApp",
-    "slug": "taponApp",
+    "slug": "taponapp",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -21,10 +21,17 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.franciscoc.taponapp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "7e4efbf1-53fe-49e3-a544-10e400d628a5"
+      }
+    },
+    "owner": "franciscoc"
   }
 }
