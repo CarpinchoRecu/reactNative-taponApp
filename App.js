@@ -1,32 +1,37 @@
-import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Text,
+  TouchableOpacity,
+  TextInput,
+} from "react-native";
 import Header from "./src/components/Header.jsx";
 import { useState } from "react";
 
 export default function App() {
-  const [contador, setContador] = useState(0);
+  const [items, setItems] = useState("");
+  const [ItemList, setItemList] = useState([]);
 
-  const mas = () => {
-    setContador((prevContador) => prevContador + 1);
+  const onChange = (text) => {
+    setItems(text);
   };
 
-  const menos = () => {
-    setContador((prevContador) => prevContador - 1);
+  const addItemToList = () => {
+    setItemList((PrevItemList) => [...PrevItemList, items]);
+    setItems("");
   };
 
   return (
     <View style={styles.container}>
       <Header />
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.button} onPress={mas}>
-          <Text style={styles.buttonText}>mas</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={menos}>
-          <Text style={styles.buttonText}>menos</Text>
-        </TouchableOpacity>
+        <TextInput value={items} style={styles.input} onChangeText={onChange} />
       </View>
-      <Text style={[styles.buttonText, { marginTop: 20 }]}>
-        Contador: {contador}
-      </Text>
+      <View>
+        <Text style={[styles.buttonText, { marginTop: 20 }]}>
+          Historial: {ItemList}
+        </Text>
+      </View>
     </View>
   );
 }
@@ -35,7 +40,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#000",
-    top: 35
+    top: 35,
   },
   buttonContainer: {
     flexDirection: "row",
@@ -52,5 +57,11 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 16,
     fontWeight: "bold",
+  },
+  input: {
+    color: "white",
+    fontSize: 16,
+    fontWeight: "bold",
+    borderColor: "white",
   },
 });
