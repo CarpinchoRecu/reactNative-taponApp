@@ -1,27 +1,24 @@
-import { View, Text,StyleSheet } from "react-native"
+import { View, Text, StyleSheet } from 'react-native'
+import { colors } from '../global/colors'
 
-const Header = () =>{
-    return(
-          <View style={styles.contenedor}>
-            <Text style={styles.txt}>App de Contabilidad</Text>
-          </View>
+const Header = ({ title }) => {
+    return (
+        <View style={styles.headerContainer}>
+            <Text style={styles.headerTitle}>{title}</Text>
+        </View>
     )
 }
 
-const styles = StyleSheet.create({
-    txt: {
-      color: "#000",
-      alignItems: "center",
-      justifyContent:"center",
-      fontWeight: "900",
-      fontSize: 42,
-      textAlign: "center"
-    },
-    contenedor: {
-      backgroundColor: "#fff",
-      alignItems: "center",
-      justifyContent:"center"
-    }
-  });
-
 export default Header
+
+const styles = StyleSheet.create({
+    headerContainer: {
+        height: 100,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: colors.primary,
+    },
+    headerTitle: {
+        color: '#fff',
+    }
+})
