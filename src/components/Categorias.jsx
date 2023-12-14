@@ -1,7 +1,6 @@
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { colors } from "../global/colors";
 import peliculas_data from "../data/peliculas_data.json";
-import { useState } from "react";
 
 const Categorias = ({ categoria, setVerPeli, setPeliPorCategoria }) => {
 
