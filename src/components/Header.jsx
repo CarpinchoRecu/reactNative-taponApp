@@ -1,38 +1,40 @@
-import React from "react";
-import { View, Text, StyleSheet } from "react-native";
-import { colors } from "../global/colors";
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
+import { colors } from '../global/colors'
+import { AntDesign } from '@expo/vector-icons';
 
-const Header = ({ title, subTitle }) => {
+const Header = ({ title, navigation }) => {
     return (
         <View style={styles.headerContainer}>
-            <Text style={styles.headerTitle}>{title}</Text>
-            <Text style={styles.subTitle}>{subTitle}</Text>
-        </View>
-    );
-};
+            {
+                navigation.canGoBack()
+                    ?
+                    <TouchableOpacity onPress={navigation.goBack}>
+                        <AntDesign name="caretleft" size={20} color="white" />
+                    </TouchableOpacity>
+                    :
+                    <View></View>
+            }
 
-export default Header;
+            <Text style={styles.headerTitle}>{title}</Text>
+
+        </View>
+    )
+}
+
+export default Header
 
 const styles = StyleSheet.create({
     headerContainer: {
-        height: 120,
-        justifyContent: "center",
-        alignItems: "center",
+        height: 100,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        paddingHorizontal: 30,
+        alignItems: 'center',
         backgroundColor: colors.primary,
-        borderBottomWidth: 2,
-        borderBottomColor: colors.black,
-        paddingHorizontal: 20,
     },
     headerTitle: {
-        color: colors.black,
-        fontSize: 26,
-        fontFamily:"JosefinSans"
-    },
-    subTitle: {
-        color: colors.darkGray,
-        fontSize: 16,
-        textAlign: "center",
-        marginTop: 8,
-        fontFamily:"JosefinSans"
-    },
-});
+        color: '#fff',
+        fontFamily: 'Karla-Bold',
+        fontSize: 20,
+    }
+})

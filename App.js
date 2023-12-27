@@ -1,17 +1,25 @@
-import { StatusBar } from "react-native";
-import CategoriasScreen from "./src/screens/CategoriasScreen";
+import { ActivityIndicator } from 'react-native';
 import { useFonts } from 'expo-font'
+import TabNavigator from './src/navigation/TabNavigator';
+import { Provider } from 'react-redux';
+import store from './src/store';
 
 export default function App() {
 
+
   const [fontLoaded] = useFonts({
-    'JosefinSans': require('./assets/fonts/JosefinSans.ttf'),
+    'Karla-regular': require('./assets/fonts/Karla-Regular.ttf'),
+    'Karla-Bold': require('./assets/fonts/Karla-Bold.ttf'),
   })
-  
+
+  if (!fontLoaded) return <ActivityIndicator />
+
   return (
-    <>
-      <StatusBar />
-      <CategoriasScreen />
-    </>
+
+    <Provider store={store}>
+      <TabNavigator />
+    </Provider>
   );
 }
+
+

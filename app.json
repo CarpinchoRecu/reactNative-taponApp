@@ -1,9 +1,9 @@
 {
   "expo": {
-    "name": "taponAppMobile",
-    "slug": "taponAppMobile",
+    "name": "my-ecommerce-app",
+    "slug": "my-ecommerce-app",
     "version": "1.0.0",
-    "orientation": "portrait",
+    "orientation":"portrait", 
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
